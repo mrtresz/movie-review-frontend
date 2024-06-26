@@ -26,27 +26,13 @@ function MoviesList(props) {
     retrieveRatings();
   }, []);
 
-  // const retrieveNextPage = () => {
-  //   if (currentSearchMode === "findByTitle") {
-  //     findByTitle();
-  //   } else if (currentSearchMode === "findByRating") {
-  //     findByRating();
-  //   } else {
-  //     retrieveMovies();
-  //   }
-  // };
+  const retrieveNextPage = () => {
+    if (currentSearchMode === "findByTitle") findByTitle();
+    else if (currentSearchMode === "findByRating") findByRating();
+    else retrieveMovies();
+  };
 
   useEffect(() => {
-    const retrieveNextPage = () => {
-      if (currentSearchMode === "findByTitle") {
-        findByTitle();
-      } else if (currentSearchMode === "findByRating") {
-        findByRating();
-      } else {
-        retrieveMovies();
-      }
-    };
-
     retrieveNextPage();
   }, [currentPage]);
 
